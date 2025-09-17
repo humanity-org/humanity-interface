@@ -15824,19 +15824,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@uniswap/universal-router-sdk@npm:^1.5.4, @uniswap/universal-router-sdk@npm:^1.5.8":
-  version: 1.9.0
-  resolution: "@uniswap/universal-router-sdk@npm:1.9.0"
+"@uniswap/universal-router-sdk@patch:@uniswap/universal-router-sdk@npm%3A3.0.2#./.yarn/patches/@uniswap-universal-router-sdk-npm-3.0.2-0fc4f685a8.patch::locator=universe%40workspace%3A.":
+  version: 3.0.2
+  resolution: "@uniswap/universal-router-sdk@patch:@uniswap/universal-router-sdk@npm%3A3.0.2#./.yarn/patches/@uniswap-universal-router-sdk-npm-3.0.2-0fc4f685a8.patch::version=3.0.2&hash=dce25c&locator=universe%40workspace%3A."
   dependencies:
-    "@uniswap/permit2-sdk": ^1.2.0
-    "@uniswap/router-sdk": ^1.9.0
-    "@uniswap/sdk-core": ^4.2.0
+    "@uniswap/permit2-sdk": ^1.3.0
+    "@uniswap/router-sdk": ^1.10.0
+    "@uniswap/sdk-core": ^5.3.1
     "@uniswap/universal-router": 1.6.0
-    "@uniswap/v2-sdk": ^4.3.0
-    "@uniswap/v3-sdk": ^3.11.0
+    "@uniswap/v2-sdk": ^4.4.1
+    "@uniswap/v3-sdk": ^3.13.1
+    "@uniswap/v4-sdk": ^1.0.0
     bignumber.js: ^9.0.2
-    ethers: ^5.3.1
-  checksum: fc4bbe178cbdfc1228d93f9fe74de30b7d77feabc368576bbd972a6435a62f79da0ea26cf7d2754a8364c258e1b3521fcca68eee7609875d4b8daf08b06a6e3b
+    ethers: ^5.7.0
+  checksum: 1e04cdb1218729957b5628b0f0f94d90cc596280e76dc9d05a8e00a7cfdb6e7b0819e8681ecfdd8439f4485fe1ac6c47f20facb81e1930825915d32b6630831d
   languageName: node
   linkType: hard
 
@@ -25382,7 +25383,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ethers@npm:5.7.2, ethers@npm:^5.3.1, ethers@npm:^5.5.2, ethers@npm:^5.6.7, ethers@npm:^5.7.0, ethers@npm:^5.7.1, ethers@npm:^5.7.2":
+"ethers@npm:5.7.2, ethers@npm:^5.5.2, ethers@npm:^5.6.7, ethers@npm:^5.7.0, ethers@npm:^5.7.1, ethers@npm:^5.7.2":
   version: 5.7.2
   resolution: "ethers@npm:5.7.2"
   dependencies:

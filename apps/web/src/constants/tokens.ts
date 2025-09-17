@@ -529,6 +529,13 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
     'WETH',
     'Wrapped Ether',
   ),
+  [UniverseChainId.Humanity]: new Token(
+    UniverseChainId.Humanity,
+    '0x31B1AaE8325C36534549b52d94bC6452f246c41E',
+    18,
+    'WH',
+    'Wrapped Humanity',
+  ),
   [UniverseChainId.Mode]: new Token(
     UniverseChainId.Mode,
     '0x4200000000000000000000000000000000000006',
@@ -635,6 +642,10 @@ export function isAnime(chainId: number): chainId is UniverseChainId.Anime {
   return chainId === UniverseChainId.Anime
 }
 
+export function isHumanity(chainId: number): chainId is UniverseChainId.Humanity {
+  return chainId === UniverseChainId.Humanity
+}
+
 class AnimeNativeCurrency extends NativeCurrency {
   equals(other: Currency): boolean {
     return other.isNative && other.chainId === this.chainId
@@ -654,6 +665,28 @@ class AnimeNativeCurrency extends NativeCurrency {
       throw new Error('Not anime')
     }
     super(chainId, 18, 'ANIME', 'ANIME')
+  }
+}
+
+class HumanityNativeCurrency extends NativeCurrency {
+  equals(other: Currency): boolean {
+    return other.isNative && other.chainId === this.chainId
+  }
+
+  get wrapped(): Token {
+    if (!isHumanity(this.chainId)) {
+      throw new Error('Not Humanity')
+    }
+    const wrapped = WRAPPED_NATIVE_CURRENCY[this.chainId]
+    invariant(wrapped instanceof Token)
+    return wrapped
+  }
+
+  public constructor(chainId: number) {
+    if (!isHumanity(chainId)) {
+      throw new Error('Not Humanity')
+    }
+    super(chainId, 18, 'H', 'Humanity')
   }
 }
 
@@ -697,6 +730,8 @@ export function nativeOnChain(chainId: number): NativeCurrency | Token {
     nativeCurrency = new AvaxNativeCurrency(chainId)
   } else if (isAnime(chainId)) {
     nativeCurrency = new AnimeNativeCurrency(chainId)
+  } else if (isHumanity(chainId)) {
+    nativeCurrency = new HumanityNativeCurrency(chainId)
   } else {
     nativeCurrency = ExtendedEther.onChain(chainId)
   }

@@ -24,6 +24,7 @@ import {
   ZERO_LOGO,
   ZKSYNC_LOGO,
   ZORA_LOGO,
+  HUMANITY_LOGO,
 } from 'ui/src/assets'
 import { InterfaceChainId, UniverseChainId } from 'uniswap/src/types/chains'
 
@@ -246,6 +247,18 @@ export function getChainUI(chainId: InterfaceChainId, darkMode: boolean): ChainU
           }
         : {
             symbol: MODE_LOGO,
+            bgColor: '#FFDDE3',
+            textColor: '#6B3841',
+          }
+    case UniverseChainId.Humanity:
+      return darkMode
+        ? {
+            symbol: HUMANITY_LOGO,
+            bgColor: '#FFDDE3',
+            textColor: '#6B3841',
+          }
+        : {
+            symbol: HUMANITY_LOGO,
             bgColor: '#FFDDE3',
             textColor: '#6B3841',
           }

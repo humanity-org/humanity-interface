@@ -230,6 +230,7 @@ export function useDerivedSwapInfo(state: SwapState): SwapInfo {
       UniverseChainId.AbstractMainnet,
       UniverseChainId.AnimeTestnet,
       UniverseChainId.Anime,
+      UniverseChainId.Humanity,
       UniverseChainId.Mode,
     ].includes(chainId)
       ? false
