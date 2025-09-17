@@ -86,17 +86,7 @@
     "resolve": "1.22.4",
     "semver": "7.5.2",
     "xml2js": "0.5.0",
-    "yaml": "2.2.2",
-    "@uniswap/sdk-core@5.3.0": "patch:@uniswap/sdk-core@npm%3A5.4.0#./.yarn/patches/@uniswap-sdk-core-npm-5.4.0-1e3057dfc0.patch",
-    "@uniswap/sdk-core@^5.0.0": "patch:@uniswap/sdk-core@npm%3A5.4.0#./.yarn/patches/@uniswap-sdk-core-npm-5.4.0-1e3057dfc0.patch",
-    "@uniswap/sdk-core@^5.3.0": "patch:@uniswap/sdk-core@npm%3A5.4.0#./.yarn/patches/@uniswap-sdk-core-npm-5.4.0-1e3057dfc0.patch",
-    "@uniswap/sdk-core@^5.3.1": "patch:@uniswap/sdk-core@npm%3A5.4.0#./.yarn/patches/@uniswap-sdk-core-npm-5.4.0-1e3057dfc0.patch",
-    "@uniswap/sdk-core@>= 3": "patch:@uniswap/sdk-core@npm%3A5.4.0#./.yarn/patches/@uniswap-sdk-core-npm-5.4.0-1e3057dfc0.patch",
-    "@uniswap/sdk-core@^4.2.0": "patch:@uniswap/sdk-core@npm%3A5.4.0#./.yarn/patches/@uniswap-sdk-core-npm-5.4.0-1e3057dfc0.patch",
-    "@uniswap/sdk-core@^4.0.7": "patch:@uniswap/sdk-core@npm%3A5.4.0#./.yarn/patches/@uniswap-sdk-core-npm-5.4.0-1e3057dfc0.patch",
-    "@uniswap/universal-router-sdk@3.0.2": "patch:@uniswap/universal-router-sdk@npm%3A3.0.2#./.yarn/patches/@uniswap-universal-router-sdk-npm-3.0.2-0fc4f685a8.patch",
-    "@uniswap/universal-router-sdk@^1.5.4": "patch:@uniswap/universal-router-sdk@npm%3A3.0.2#./.yarn/patches/@uniswap-universal-router-sdk-npm-3.0.2-0fc4f685a8.patch",
-    "@uniswap/universal-router-sdk@^1.5.8": "patch:@uniswap/universal-router-sdk@npm%3A3.0.2#./.yarn/patches/@uniswap-universal-router-sdk-npm-3.0.2-0fc4f685a8.patch"
+    "yaml": "2.2.2"
   },
   "resolutionsComments": {
     "immer": "this fixes yarn typecheck in mobile app, see https://github.com/reduxjs/redux-toolkit/issues/1806",
