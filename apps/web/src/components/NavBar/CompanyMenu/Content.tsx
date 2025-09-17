@@ -24,10 +24,6 @@ export const useMenuContent = (): MenuSection[] => {
       items: [{ label: 'Contact Support', href: 'https://swap-support.protofire.io/' }],
     },
     {
-      title: 'Company',
-      items: [{ label: 'Protofire', href: 'https://protofire.io/' }],
-    },
-    {
       title: 'Terms',
       items: [
         { label: 'Terms and Conditions', href: '/terms' },

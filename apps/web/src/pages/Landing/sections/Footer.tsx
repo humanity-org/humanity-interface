@@ -3,7 +3,7 @@ import { MenuItem, useMenuContent } from 'components/NavBar/CompanyMenu/Content'
 import { MenuLink } from 'components/NavBar/CompanyMenu/MenuDropdown'
 import { useTabsContent } from 'components/NavBar/Tabs/TabsContent'
 import deprecatedStyled, { useTheme } from 'lib/styled-components'
-import { Github, Medium, Twitter } from 'pages/Landing/components/Icons'
+import { Discord, Twitter } from 'pages/Landing/components/Icons'
 import { Wiggle } from 'pages/Landing/components/animations'
 import { useMemo } from 'react'
 // import { useTogglePrivacyPolicy } from 'state/application/hooks'
@@ -33,20 +33,14 @@ const PolicyLink = styled(Text, {
 export function Socials({ iconSize }: { iconSize?: string }) {
   return (
     <Flex row gap="$spacing24" maxHeight={iconSize} alignItems="flex-start">
-      <SocialIcon $hoverColor="#DE6579">
-        <Anchor href="https://x.com/protofire" target="_blank">
+      <SocialIcon $hoverColor="#BA5400">
+        <Anchor href="https://x.com/Humanityprot" target="_blank">
           <Twitter size={iconSize} fill="inherit" />
         </Anchor>
       </SocialIcon>
-      <SocialIcon $hoverColor="#DE6579">
-        <Anchor href="https://github.com/protofire" target="_blank">
-          <Github size={iconSize} fill="inherit" />
-        </Anchor>
-      </SocialIcon>
-
-      <SocialIcon $hoverColor="#DE6579">
-        <Anchor href="https://medium.com/@Protofire_io" target="_blank">
-          <Medium size={iconSize} fill="inherit" />
+      <SocialIcon $hoverColor="#BA5400">
+        <Anchor href="https://discord.com/invite/xRcwDJUzy7" target="_blank">
+          <Discord size={iconSize} fill="inherit" />
         </Anchor>
       </SocialIcon>
     </Flex>
@@ -121,7 +115,7 @@ export function Footer() {
         width="100%"
         justifyContent="space-between"
       >
-        <Text variant="body3">2025 Sakura Swap</Text>
+        <Text variant="body3">2025 Humanity Swap</Text>
         <Anchor style={{ textDecoration: 'none' }} href="https://protofire.io" target="_blank">
           <Text variant="body3" style={{ display: 'flex', alignItems: 'center' }}>
             Supported by <CompanyIcon style={{ marginLeft: 4, marginRight: 4 }} />
