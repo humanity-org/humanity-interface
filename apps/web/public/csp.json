@@ -58,6 +58,8 @@
     "https://rpc.redstonechain.com",
     "https://rpc-gel.inkonchain.com",
     "https://humanity-mainnet.g.alchemy.com/public",
+    "https://apiv2.staging.swap.humanity.org",
+    "https://apiv1.staging.swap.humanity.org",
     "https://apiv1.staging.flow-swap.w3us.site",
     "https://apiv2.staging.flow-swap.w3us.site",
     "https://ipfs.swap.w3us.site",
