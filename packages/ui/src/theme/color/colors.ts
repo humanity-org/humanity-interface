@@ -210,7 +210,7 @@ const sporeLight = {
   accent2: '#000000',
   accent2Hovered: '#000000',
   accent3: colors.white,
-  accent3Hovered: colors.white,
+  accent3Hovered: '#BA5400',
 
   DEP_accentSoft: '#FC72FF33', //33 = 20%
 
@@ -255,7 +255,7 @@ const sporeDark = {
   accent2: '#000000',
   accent2Hovered: '#000000',
   accent3: colors.white,
-  accent3Hovered: colors.white,
+  accent3Hovered: '#BA5400',
 
   DEP_accentSoft: '#6E56CF33', //33 = 20%
 
