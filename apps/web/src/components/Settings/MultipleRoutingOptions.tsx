@@ -26,7 +26,6 @@ enum RoutePreferenceOption {
   Optimal = 'Optimal',
   UniswapX = 'UniswapX',
   v3 = 'v3',
-  v2 = 'v2',
 }
 
 type RoutePreferenceOptionsType =
@@ -77,7 +76,7 @@ const ROUTE_PREFERENCE_TO_LABEL: Record<RoutePreferenceOption, ReactNode> = {
   [RoutePreferenceOption.Optimal]: t('common.defaultTradeOptions'),
   [RoutePreferenceOption.UniswapX]: <UniswapXPreferenceLabel />,
   [RoutePreferenceOption.v3]: t('pool.v3'),
-  [RoutePreferenceOption.v2]: t('pool.v2'),
+  // [RoutePreferenceOption.v2]: t('pool.v2'),
 }
 
 function RoutePreferenceToggle({
