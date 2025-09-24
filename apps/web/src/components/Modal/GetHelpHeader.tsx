@@ -1,4 +1,3 @@
-import GetHelpButton from 'components/Button/GetHelp'
 import styled from 'lib/styled-components'
 import { ReactNode } from 'react'
 import { ArrowLeft } from 'react-feather'
@@ -21,7 +20,7 @@ interface GetHelpHeaderProps {
   className?: string
 }
 
-export function GetHelpHeader({ title, goBack, link, closeModal, closeDataTestId, className }: GetHelpHeaderProps) {
+export function GetHelpHeader({ title, goBack, closeModal, closeDataTestId, className }: GetHelpHeaderProps) {
   return (
     <Flex row justifyContent="space-between" alignItems="center" gap="$spacing4" width="100%" className={className}>
       {goBack && <BackButton size={iconSizes.icon24} onClick={goBack} />}
@@ -31,7 +30,6 @@ export function GetHelpHeader({ title, goBack, link, closeModal, closeDataTestId
         </Flex>
       )}
       <Flex row fill justifyContent="flex-end" alignItems="center" gap="10px">
-        <GetHelpButton url={link} />
         <CloseIcon data-testid={closeDataTestId} onClick={closeModal} />
       </Flex>
     </Flex>
