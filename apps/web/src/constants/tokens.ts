@@ -560,7 +560,7 @@ function getCeloNativeCurrency(chainId: number) {
   }
 }
 
-export function isPolygon(chainId: number): chainId is UniverseChainId.Polygon | UniverseChainId.PolygonMumbai {
+function isPolygon(chainId: number): chainId is UniverseChainId.Polygon | UniverseChainId.PolygonMumbai {
   return chainId === UniverseChainId.PolygonMumbai || chainId === UniverseChainId.Polygon
 }
 
@@ -586,7 +586,7 @@ class PolygonNativeCurrency extends NativeCurrency {
   }
 }
 
-export function isBsc(chainId: number): chainId is UniverseChainId.Bnb {
+function isBsc(chainId: number): chainId is UniverseChainId.Bnb {
   return chainId === UniverseChainId.Bnb
 }
 
@@ -612,7 +612,7 @@ class BscNativeCurrency extends NativeCurrency {
   }
 }
 
-export function isAvalanche(chainId: number): chainId is UniverseChainId.Avalanche {
+function isAvalanche(chainId: number): chainId is UniverseChainId.Avalanche {
   return chainId === UniverseChainId.Avalanche
 }
 
@@ -638,7 +638,7 @@ class AvaxNativeCurrency extends NativeCurrency {
   }
 }
 
-export function isAnime(chainId: number): chainId is UniverseChainId.Anime {
+function isAnime(chainId: number): chainId is UniverseChainId.Anime {
   return chainId === UniverseChainId.Anime
 }
 
