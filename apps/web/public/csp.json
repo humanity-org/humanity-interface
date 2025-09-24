@@ -66,6 +66,7 @@
     "https://apiv2.staging.flow-swap.w3us.site",
     "https://ipfs.swap.w3us.site",
     "https://graph.swap.w3us.site",
+    "https://graph.staging.swap.humanity.org",
     "https://graph-json-rpc.swap.w3us.site",
     "https://*.replace.domain/tokenlist/v1",
     "https://1rpc.io/*",
