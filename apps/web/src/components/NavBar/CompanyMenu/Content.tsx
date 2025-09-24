@@ -5,6 +5,7 @@ export interface MenuItem {
   href: string
   internal?: boolean
   overflow?: boolean
+  isBlank?: boolean
   closeMenu?: () => void
 }
 

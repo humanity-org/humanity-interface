@@ -17,6 +17,7 @@ export type TabsSection = {
   title: string
   href: string
   isActive?: boolean
+  isBlank?: boolean
   items?: TabsItem[]
   closeMenu?: () => void
 }
@@ -83,6 +84,7 @@ export const useTabsContent = (props?: { includeNftsLink?: boolean }): TabsSecti
       title: t('common.explore'),
       href: `https://info.staging.swap.humanity.org`,
       isActive: pathname.startsWith('/explore') || pathname.startsWith('/nfts'),
+      isBlank: true,
       items: forkConfig.uniSpecificFeaturesEnabled
         ? [
             { label: t('common.tokens'), quickKey: 'T', href: '/explore/tokens', internal: true },
@@ -115,6 +117,7 @@ export const useTabsContent = (props?: { includeNftsLink?: boolean }): TabsSecti
               quickKey: 'T',
               href: `https://info.staging.swap.humanity.org/`,
               internal: false,
+              isBlank: true,
             },
             ...(![+UniverseChainId.BOB, UniverseChainId.REDSTONE, UniverseChainId.REDSTONE_GARNET].includes(+chainId!)
               ? [

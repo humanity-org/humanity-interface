@@ -48,13 +48,14 @@ interface TItemProps {
   label: string
   quickKey: string
   path: string
+  isBlank?: boolean
   closeMenu: () => void
 }
-function Item({ icon, label, quickKey, path, closeMenu }: TItemProps) {
+function Item({ icon, label, quickKey, path, closeMenu, isBlank }: TItemProps) {
   const navHotkeysEnabled = useFeatureFlag(FeatureFlags.NavigationHotkeys)
 
   return (
-    <NavLink to={path} style={{ textDecoration: 'none' }} onClick={closeMenu}>
+    <NavLink to={path} style={{ textDecoration: 'none' }} onClick={closeMenu} target={isBlank ? '_blank' : '_self'}>
       <ItemContainer>
         {icon}
         <Text variant="buttonLabel2" width="100%" color="$neutral2">
@@ -75,11 +76,13 @@ function Item({ icon, label, quickKey, path, closeMenu }: TItemProps) {
 const Tab = ({
   label,
   isActive,
+  isBlank,
   path,
   items,
 }: {
   label: string
   isActive?: boolean
+  isBlank?: boolean
   path: string
   items?: TabsItem[]
 }) => {
@@ -95,7 +98,7 @@ const Tab = ({
   useEffect(() => closeMenu(), [location, closeMenu])
 
   const Label = (
-    <NavLink to={path} style={{ textDecoration: 'none' }}>
+    <NavLink to={path} style={{ textDecoration: 'none' }} target={isBlank ? '_blank' : '_self'}>
       <TabText
         variant="subheading1"
         color={isActive || isOpen ? '$neutral1' : '$neutral2'}
@@ -150,6 +153,7 @@ const Tab = ({
               label={item.label}
               quickKey={item.quickKey}
               path={item.href}
+              isBlank={item.isBlank}
               closeMenu={closeMenu}
             />
           ))}
@@ -163,8 +167,8 @@ export function Tabs() {
   const tabsContent: TabsSection[] = useTabsContent()
   return (
     <>
-      {tabsContent.map(({ title, isActive, href, items }, index) => (
-        <Tab key={`${title}_${index}`} label={title} isActive={isActive} path={href} items={items} />
+      {tabsContent.map(({ title, isActive, href, items, isBlank }, index) => (
+        <Tab key={`${title}_${index}`} label={title} isActive={isActive} isBlank={isBlank} path={href} items={items} />
       ))}
     </>
   )
