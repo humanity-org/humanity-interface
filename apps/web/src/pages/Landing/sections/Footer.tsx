@@ -22,13 +22,13 @@ const SocialIcon = deprecatedStyled(Wiggle)`
     fill: ${(props) => props.$hoverColor};
   }
 `
-const PolicyLink = styled(Text, {
-  variant: 'body3',
-  animation: '100ms',
-  color: '$neutral2',
-  cursor: 'pointer',
-  hoverStyle: { color: '$neutral1' },
-})
+// const PolicyLink = styled(Text, {
+//   variant: 'body3',
+//   animation: '100ms',
+//   color: '$neutral2',
+//   cursor: 'pointer',
+//   hoverStyle: { color: '$neutral1' },
+// })
 
 export function Socials({ iconSize }: { iconSize?: string }) {
   return (
@@ -97,6 +97,7 @@ export function Footer() {
             <FooterSection title={t('common.app')} items={appSectionItems} />
             {/* <FooterSection title={sections[0].title} items={[...sections[0].items, brandAssets]} /> */}
             <FooterSection title={sections[0].title} items={sections[0].items} />
+            <FooterSection title={sections[1].title} items={sections[1].items} />
           </Flex>
           {/* <Flex row gap="$spacing16" $md={{ width: 'auto' }}>
             <FooterSection title={sections[1].title} items={sections[1].items} />
@@ -125,7 +126,7 @@ export function Footer() {
           {/* <Anchor textDecorationLine="none" href="https://uniswap.org/trademark" target="_blank">
             <PolicyLink>{t('common.trademarkPolicy')}</PolicyLink>
           </Anchor> */}
-          <PolicyLink href="/privacy">{t('common.privacyPolicy')}</PolicyLink>
+          {/* <PolicyLink href="/privacy">{t('common.privacyPolicy')}</PolicyLink> */}
         </Flex>
       </Flex>
     </Flex>
