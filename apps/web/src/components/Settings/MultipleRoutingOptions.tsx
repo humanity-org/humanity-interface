@@ -33,20 +33,17 @@ type RoutePreferenceOptionsType =
       [RoutePreferenceOption.Optimal]: false
       [RoutePreferenceOption.UniswapX]: boolean
       [RoutePreferenceOption.v3]: boolean
-      [RoutePreferenceOption.v2]: boolean
     }
   | {
       [RoutePreferenceOption.Optimal]: true
       [RoutePreferenceOption.UniswapX]: false
       [RoutePreferenceOption.v3]: false
-      [RoutePreferenceOption.v2]: false
     }
 
 const DEFAULT_ROUTE_PREFERENCE_OPTIONS: RoutePreferenceOptionsType = {
   [RoutePreferenceOption.Optimal]: true,
   [RoutePreferenceOption.UniswapX]: false,
   [RoutePreferenceOption.v3]: false,
-  [RoutePreferenceOption.v2]: false,
 }
 const DEFAULT_ROUTING_PREFERENCE: RoutingPreference = {
   router: RouterPreference.X,
@@ -115,8 +112,7 @@ function RoutePreferenceToggle({
 export default function MultipleRoutingOptions({ chainId }: { chainId?: number }) {
   const [routePreferenceOptions, setRoutePreferenceOptions] = useAtom(routePreferenceOptionsAtom)
   const [, setRoutingPreferences] = useAtom(routingPreferencesAtom)
-  const shouldDisableProtocolOptionToggle =
-    !routePreferenceOptions[RoutePreferenceOption.v2] || !routePreferenceOptions[RoutePreferenceOption.v3]
+  const shouldDisableProtocolOptionToggle = !routePreferenceOptions[RoutePreferenceOption.v3]
   const uniswapXSupportedChain = chainId && isUniswapXSupportedChain(chainId)
   const handleSetRoutePreferenceOptions = useCallback(
     (options: RoutePreferenceOptionsType) => {
@@ -134,13 +130,7 @@ export default function MultipleRoutingOptions({ chainId }: { chainId?: number }
         protocols: [],
       }
 
-      if (options[RoutePreferenceOption.v2] && options[RoutePreferenceOption.v3]) {
-        routingPreferences.protocols = [Protocol.V2, Protocol.V3, Protocol.MIXED]
-      } else if (options[RoutePreferenceOption.v2]) {
-        routingPreferences.protocols = [Protocol.V2]
-      } else if (options[RoutePreferenceOption.v3]) {
-        routingPreferences.protocols = [Protocol.V3]
-      }
+      routingPreferences.protocols = [Protocol.V3]
 
       setRoutePreferenceOptions(options)
       setRoutingPreferences(routingPreferences)
@@ -155,13 +145,11 @@ export default function MultipleRoutingOptions({ chainId }: { chainId?: number }
           ? handleSetRoutePreferenceOptions({
               [RoutePreferenceOption.Optimal]: false,
               [RoutePreferenceOption.UniswapX]: true,
-              [RoutePreferenceOption.v2]: true,
               [RoutePreferenceOption.v3]: true,
             })
           : handleSetRoutePreferenceOptions({
               [RoutePreferenceOption.Optimal]: true,
               [RoutePreferenceOption.UniswapX]: false,
-              [RoutePreferenceOption.v2]: false,
               [RoutePreferenceOption.v3]: false,
             })
         return
@@ -193,7 +181,7 @@ export default function MultipleRoutingOptions({ chainId }: { chainId?: number }
         toggle={() => handleRoutePreferenceToggle(RoutePreferenceOption.Optimal)}
       />
       {!routePreferenceOptions[RoutePreferenceOption.Optimal] &&
-        [RoutePreferenceOption.UniswapX, RoutePreferenceOption.v3, RoutePreferenceOption.v2].map((preference) => {
+        [RoutePreferenceOption.UniswapX, RoutePreferenceOption.v3].map((preference) => {
           if (preference === RoutePreferenceOption.UniswapX && !uniswapXSupportedChain) {
             return null
           }
@@ -205,7 +193,6 @@ export default function MultipleRoutingOptions({ chainId }: { chainId?: number }
               isActive={routePreferenceOptions[preference]}
               disabled={
                 preference !== RoutePreferenceOption.UniswapX &&
-                routePreferenceOptions[preference] &&
                 shouldDisableProtocolOptionToggle
               }
               toggle={() => handleRoutePreferenceToggle(preference)}
