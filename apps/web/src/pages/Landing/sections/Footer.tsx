@@ -7,7 +7,7 @@ import { Discord, Twitter } from 'pages/Landing/components/Icons'
 import { Wiggle } from 'pages/Landing/components/animations'
 import { useMemo } from 'react'
 // import { useTogglePrivacyPolicy } from 'state/application/hooks'
-import { Anchor, Flex, Separator, Text, styled } from 'ui/src'
+import { Anchor, Flex, Separator, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { useTranslation } from 'uniswap/src/i18n'
 const SOCIAL_ICONS_SIZE = `${iconSizes.icon32}px`

@@ -2,7 +2,7 @@ import { SharedEventName } from '@uniswap/analytics-events'
 import Card, { DarkGrayCard } from 'components/Card'
 import { AutoColumn } from 'components/Column'
 import Modal from 'components/Modal'
-import Row, { AutoRow, RowBetween } from 'components/Row'
+import { AutoRow, RowBetween } from 'components/Row'
 import styled from 'lib/styled-components'
 import { useEffect, useRef } from 'react'
 import { ArrowDown, Info, X } from 'react-feather'
@@ -61,9 +61,6 @@ const EXTERNAL_APIS = [
     description: (
       <>
         <Trans i18nKey="privacy.trm" />{' '}
-        <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/8671777747597-Address-Screening-Guide">
-          <Trans i18nKey="common.button.learn" />
-        </ExternalLink>
       </>
     ),
   },
@@ -164,13 +161,6 @@ function PrivacyPolicy() {
               </AutoColumn>
             </DarkGrayCard>
           ))}
-          <ThemedText.DeprecatedBody fontSize={12}>
-            <Row justify="center" marginBottom="1rem">
-              <ExternalLink href="https://help.uniswap.org/en/articles/5675203-terms-of-service-faq">
-                <Trans i18nKey="common.button.learn" />
-              </ExternalLink>
-            </Row>
-          </ThemedText.DeprecatedBody>
         </AutoColumn>
       </AutoColumn>
     </Wrapper>

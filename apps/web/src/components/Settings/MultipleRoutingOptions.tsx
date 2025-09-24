@@ -8,9 +8,8 @@ import { atom, useAtom } from 'jotai'
 import styled from 'lib/styled-components'
 import { ReactNode, useCallback } from 'react'
 import { RouterPreference } from 'state/routing/types'
-import { ExternalLink, ThemedText } from 'theme/components'
+import { ThemedText } from 'theme/components'
 import { Switch } from 'ui/src'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { Trans, t } from 'uniswap/src/i18n'
 
 const LabelWrapper = styled(Column)`
@@ -66,9 +65,6 @@ function UniswapXPreferenceLabel() {
         text={
           <>
             <Trans i18nKey="routing.aggregateLiquidity" />{' '}
-            <ExternalLink href={uniswapUrls.helpArticleUrls.uniswapXInfo}>
-              <Trans i18nKey="common.button.learn" />
-            </ExternalLink>
           </>
         }
         placement="right"

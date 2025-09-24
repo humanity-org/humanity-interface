@@ -146,17 +146,6 @@ export function ExtensionLaunchModal() {
                   </StyledThemeButton>
                 </Trace>
               )}
-              <Trace logPress element={InterfaceElementName.LEARN_MORE_LINK}>
-                <StyledExternalLink href="https://wallet.uniswap.org//?utm_medium=promo-dialogue&utm_source=web-app&utm_campaign=ext-launch&utm_creative=learn-more">
-                  <StyledThemeButton
-                    size={ButtonSize.small}
-                    emphasis={isMobile ? ButtonEmphasis.high : ButtonEmphasis.medium}
-                    onClick={() => setShowExtensionLaunch(false)}
-                  >
-                    <Trans i18nKey="common.button.learn" />
-                  </StyledThemeButton>
-                </StyledExternalLink>
-              </Trace>
               {!isMobile && (
                 <Trace logPress element={InterfaceElementName.EXTENSION_DOWNLOAD_BUTTON}>
                   <StyledExternalLink href={uniswapUrls.chromeExtension}>

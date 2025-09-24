@@ -4,7 +4,7 @@ import { ChainOutageData } from 'featureFlags/flags/outageBanner'
 import styled, { useTheme } from 'lib/styled-components'
 import { useState } from 'react'
 import { Globe } from 'react-feather'
-import { ExternalLink, ThemedText } from 'theme/components'
+import { ThemedText } from 'theme/components'
 import { capitalize } from 'tsafe'
 import { Trans } from 'uniswap/src/i18n'
 import { UniverseChainId } from 'uniswap/src/types/chains'
@@ -28,11 +28,6 @@ const StyledPopupContainer = styled(PopupContainer)`
 
 const OutageTextContainer = styled(TextContainer)`
   padding: 10px 10px 10px 0;
-`
-
-const HelpCenterLink = styled(ExternalLink)`
-  font-size: 14px;
-  margin-top: 4px;
 `
 
 export function getOutageBannerSessionStorageKey(chainId: UniverseChainId) {
@@ -64,9 +59,6 @@ export function OutageBanner({ chainId, version }: ChainOutageData) {
           <ThemedText.LabelMicro>
             <Trans i18nKey="outageBanner.message.sub" />
           </ThemedText.LabelMicro>
-          <HelpCenterLink href="https://support.uniswap.org/hc/en-us/articles/23952001935373-Subgraph-downtime">
-            <Trans i18nKey="common.button.learn" />
-          </HelpCenterLink>
         </OutageTextContainer>
         <StyledXButton
           data-testid="uniswap-outage-banner"

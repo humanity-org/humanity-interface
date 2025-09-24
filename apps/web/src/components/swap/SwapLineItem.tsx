@@ -18,7 +18,7 @@ import { InterfaceTrade, SubmittableTrade, TradeFillType } from 'state/routing/t
 import { isLimitTrade, isPreviewTrade, isUniswapXTrade, isUniswapXTradeType } from 'state/routing/utils'
 import { useUserSlippageTolerance } from 'state/user/hooks'
 import { SlippageTolerance } from 'state/user/types'
-import { ExternalLink, ThemedText } from 'theme/components'
+import { ThemedText } from 'theme/components'
 import { Trans, t } from 'uniswap/src/i18n'
 import { NumberType, useFormatter } from 'utils/formatNumbers'
 import { getPriceImpactColor } from 'utils/prices'
@@ -51,14 +51,10 @@ const AutoBadge = styled(ThemedText.LabelMicro).attrs({ fontWeight: 535 })`
   align-items: center;
 `
 
-function BaseTooltipContent({ children, url }: { children: ReactNode; url: string }) {
+function BaseTooltipContent({ children }: { children: ReactNode; url: string }) {
   return (
     <>
       {children}
-      <br />
-      <ExternalLink href={url}>
-        <Trans i18nKey="common.button.learn" />
-      </ExternalLink>
     </>
   )
 }

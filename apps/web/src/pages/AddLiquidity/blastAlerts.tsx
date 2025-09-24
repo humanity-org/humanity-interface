@@ -35,10 +35,6 @@ const AlertIconContainer = styled.div`
   border-radius: 12px;
 `
 
-const StyledLearnMore = styled(ExternalLink)`
-  display: inline-block;
-`
-
 interface BlastRebasingModalProps {
   currencyIdA?: string
   currencyIdB?: string
@@ -125,11 +121,6 @@ export function BlastRebasingAlert() {
         </ThemedText.SubHeader>
         <TextWrapper lineHeight="20px" $expanded={expanded}>
           <Trans i18nKey="v3.blast.yield.usdbAndWeth" />{' '}
-          <StyledLearnMore href="https://support.uniswap.org/hc/en-us/articles/25351747812109-Blast-Rebase-Tokens">
-            <ThemedText.SubHeaderSmall fontWeight={535} lineHeight="20px" color="neutral1">
-              <Trans i18nKey="common.button.learn" />
-            </ThemedText.SubHeaderSmall>
-          </StyledLearnMore>
         </TextWrapper>
         <ReadMore onClick={handleSetExpanded}>
           <ThemedText.SubHeaderSmall lineHeight="20px" fontWeight={535}>

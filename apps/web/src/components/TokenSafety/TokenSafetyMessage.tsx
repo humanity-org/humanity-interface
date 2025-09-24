@@ -1,10 +1,8 @@
-import { displayWarningLabel, getWarningCopy, TOKEN_SAFETY_ARTICLE, Warning } from 'constants/tokenSafety'
+import { displayWarningLabel, getWarningCopy, Warning } from 'constants/tokenSafety'
 import { useTokenWarningColor, useTokenWarningTextColor } from 'hooks/useTokenWarningColor'
 import styled from 'lib/styled-components'
 import { AlertTriangle, Slash } from 'react-feather'
 import { Text } from 'rebass'
-import { ExternalLink } from 'theme/components'
-import { Trans } from 'uniswap/src/i18n'
 
 const Label = styled.div<{ color: string; backgroundColor: string }>`
   width: 100%;
@@ -35,11 +33,6 @@ const DetailsRow = styled.div`
   color: ${({ theme }) => theme.neutral2};
 `
 
-const StyledLink = styled(ExternalLink)`
-  color: ${({ theme }) => theme.neutral1};
-  font-weight: 535;
-`
-
 type TokenSafetyMessageProps = {
   warning: Warning
   tokenAddress: string
@@ -49,7 +42,6 @@ type TokenSafetyMessageProps = {
 
 export default function TokenSafetyMessage({
   warning,
-  tokenAddress,
   plural = false,
   tokenSymbol,
 }: TokenSafetyMessageProps) {
@@ -71,11 +63,6 @@ export default function TokenSafetyMessage({
         {Boolean(heading) && ' '}
         {description}
         {Boolean(description) && ' '}
-        {tokenAddress && (
-          <StyledLink href={TOKEN_SAFETY_ARTICLE}>
-            <Trans i18nKey="common.button.learn" />
-          </StyledLink>
-        )}
       </DetailsRow>
     </Label>
   )
