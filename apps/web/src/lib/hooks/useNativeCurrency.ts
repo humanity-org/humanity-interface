@@ -9,7 +9,7 @@ export default function useNativeCurrency(chainId: InterfaceChainId | null | und
       chainId
         ? nativeOnChain(chainId)
         : // display mainnet when not connected
-          nativeOnChain(UniverseChainId.Mainnet),
+          nativeOnChain(UniverseChainId.Humanity),
     [chainId],
   )
 }

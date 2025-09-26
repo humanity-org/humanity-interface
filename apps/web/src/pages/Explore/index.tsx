@@ -92,7 +92,7 @@ const Explore = ({ initialTab }: { initialTab?: ExploreTab }) => {
   const chain = useMemo(() => {
     return isMultichainExploreEnabled
       ? chainWithoutFallback
-      : chainWithoutFallback ?? UNIVERSE_CHAIN_INFO[UniverseChainId.Mainnet]
+      : chainWithoutFallback ?? UNIVERSE_CHAIN_INFO[UniverseChainId.Humanity]
   }, [chainWithoutFallback, isMultichainExploreEnabled])
   useEffect(() => {
     const tabIndex = Pages.findIndex((page) => page.key === tab)

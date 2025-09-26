@@ -1,3 +1,4 @@
+import GetHelpButton from 'components/Button/GetHelp'
 import styled from 'lib/styled-components'
 import { ReactNode } from 'react'
 import { ArrowLeft } from 'react-feather'
@@ -30,6 +31,7 @@ export function GetHelpHeader({ title, goBack, closeModal, closeDataTestId, clas
         </Flex>
       )}
       <Flex row fill justifyContent="flex-end" alignItems="center" gap="10px">
+        <GetHelpButton/>
         <CloseIcon data-testid={closeDataTestId} onClick={closeModal} />
       </Flex>
     </Flex>

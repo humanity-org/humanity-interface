@@ -417,7 +417,7 @@ export function useInitialCurrencyState(): {
     return queryParametersToCurrencyState(parsedQs)
   }, [parsedQs])
 
-  const supportedChainId = useSupportedChainId(parsedCurrencyState.chainId ?? chainId) ?? UniverseChainId.Mainnet
+  const supportedChainId = useSupportedChainId(parsedCurrencyState.chainId ?? chainId) ?? UniverseChainId.Humanity
   const hasCurrencyQueryParams =
     parsedCurrencyState.inputCurrencyId || parsedCurrencyState.outputCurrencyId || parsedCurrencyState.chainId
 
@@ -428,11 +428,11 @@ export function useInitialCurrencyState(): {
   }, [parsedCurrencyState.inputCurrencyId, parsedCurrencyState.outputCurrencyId, setIsUserSelectedToken])
 
   const { initialInputCurrencyAddress, initialChainId } = useMemo(() => {
-    // Default to ETH if multichain
+    // Default to Humanity network if multichain
     if (multichainUXEnabled && !hasCurrencyQueryParams) {
       return {
         initialInputCurrencyAddress: 'ETH',
-        initialChainId: UniverseChainId.Mainnet,
+        initialChainId: UniverseChainId.Humanity,
       }
     }
     // Handle query params or disconnected state
