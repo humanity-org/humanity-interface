@@ -154,7 +154,8 @@ function useCreateTDPContext(): PendingTDPContext | LoadedTDPContext {
   ])
 }
 
-export default function TokenDetailsPage() {
+// eslint-disable-next-line
+function TokenDetailsPage() {
   const account = useAccount()
   const pageChainId = account.chainId ?? UniverseChainId.Mainnet
   const contextValue = useCreateTDPContext()
