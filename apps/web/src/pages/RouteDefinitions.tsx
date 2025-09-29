@@ -13,13 +13,13 @@ import Swap from 'pages/Swap'
 import { FeatureFlags } from 'uniswap/src/features/gating/flags'
 import { useFeatureFlag } from 'uniswap/src/features/gating/hooks'
 
-const NftExplore = lazy(() => import('nft/pages/explore'))
+// const NftExplore = lazy(() => import('nft/pages/explore'))
 const Collection = lazy(() => import('nft/pages/collection'))
 const Profile = lazy(() => import('nft/pages/profile'))
 const Asset = lazy(() => import('nft/pages/asset/Asset'))
 const AddLiquidityWithTokenRedirects = lazy(() => import('pages/AddLiquidity/redirects'))
 const AddLiquidityV2WithTokenRedirects = lazy(() => import('pages/AddLiquidityV2/redirects'))
-const RedirectExplore = lazy(() => import('pages/Explore/redirects'))
+// const RedirectExplore = lazy(() => import('pages/Explore/redirects'))
 const MigrateV2 = lazy(() => import('pages/MigrateV2'))
 const MigrateV2Pair = lazy(() => import('pages/MigrateV2/MigrateV2Pair'))
 const NotFound = lazy(() => import('pages/NotFound'))
@@ -27,11 +27,11 @@ const Pool = lazy(() => import('pages/Pool'))
 const LegacyPool = lazy(() => import('pages/LegacyPool'))
 const LegacyPositionPage = lazy(() => import('pages/LegacyPool/PositionPage'))
 const LegacyPoolV2 = lazy(() => import('pages/LegacyPool/v2'))
-const PoolDetails = lazy(() => import('pages/PoolDetails'))
+// const PoolDetails = lazy(() => import('pages/PoolDetails'))
 const PoolFinder = lazy(() => import('pages/PoolFinder'))
 const RemoveLiquidity = lazy(() => import('pages/RemoveLiquidity'))
 const RemoveLiquidityV3 = lazy(() => import('pages/RemoveLiquidity/V3'))
-const TokenDetails = lazy(() => import('pages/TokenDetails'))
+// const TokenDetails = lazy(() => import('pages/TokenDetails'))
 const PrivacyPolicy = lazy(() => import('pages/PrivacyPolicy'))
 const Terms = lazy(() => import('pages/Terms'))
 
@@ -118,41 +118,37 @@ export const routes: RouteDefinition[] = [
     getTitle: getExploreTitle,
     getDescription: getExploreDescription,
     nestedPaths: [':tab', ':chainName', ':tab/:chainName'],
-    getElement: () => <RedirectExplore />,
+    getElement: () => <Navigate to="/not-found" replace />,
   }),
   createRouteDefinition({
     path: '/explore/tokens/:chainName/:tokenAddress',
     getTitle: () => t('common.buyAndSell'),
     getDescription: () => StaticTitlesAndDescriptions.TDPDescription,
-    getElement: () => <TokenDetails />,
+    getElement: () => <Navigate to="/not-found" replace />,
   }),
   createRouteDefinition({
     path: '/tokens',
     getTitle: getExploreTitle,
     getDescription: getExploreDescription,
-    getElement: () => <Navigate to="/explore/tokens" replace />,
+    getElement: () => <Navigate to="/not-found" replace />,
   }),
   createRouteDefinition({
     path: '/tokens/:chainName',
     getTitle: getExploreTitle,
     getDescription: getExploreDescription,
-    getElement: () => <RedirectExplore />,
+    getElement: () => <Navigate to="/not-found" replace />,
   }),
   createRouteDefinition({
     path: '/tokens/:chainName/:tokenAddress',
     getTitle: () => StaticTitlesAndDescriptions.DetailsPageBaseTitle,
     getDescription: () => StaticTitlesAndDescriptions.TDPDescription,
-    getElement: () => <RedirectExplore />,
+    getElement: () => <Navigate to="/not-found" replace />,
   }),
   createRouteDefinition({
     path: '/explore/pools/:chainName/:poolAddress',
     getTitle: () => StaticTitlesAndDescriptions.DetailsPageBaseTitle,
     getDescription: () => StaticTitlesAndDescriptions.PDPDescription,
-    getElement: () => (
-      <Suspense fallback={null}>
-        <PoolDetails />
-      </Suspense>
-    ),
+    getElement: () => <Navigate to="/not-found" replace />,
   }),
   createRouteDefinition({
     path: '/vote/*',
@@ -315,11 +311,7 @@ export const routes: RouteDefinition[] = [
   }),
   createRouteDefinition({
     path: '/nfts',
-    getElement: () => (
-      <Suspense fallback={null}>
-        <NftExplore />
-      </Suspense>
-    ),
+    getElement: () => <Navigate to="/not-found" replace />,
     enabled: (args) => !args.shouldDisableNFTRoutes,
     getTitle: () => t('title.exploreNFTs'),
     getDescription: () => t('title.betterPricesMoreListings'),

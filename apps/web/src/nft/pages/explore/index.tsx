@@ -20,7 +20,7 @@ const ExploreContainer = styled.div`
     gap: 0px;
   }
 `
-
+// eslint-disable-next-line
 const NftExplore = () => {
   const setBagExpanded = useBag((state) => state.setBagExpanded)
 
@@ -39,5 +39,3 @@ const NftExplore = () => {
     </>
   )
 }
-
-export default NftExplore

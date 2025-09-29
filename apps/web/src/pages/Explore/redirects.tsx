@@ -28,7 +28,8 @@ export function useExploreParams(): {
     return { tab: tab as ExploreTab, chainName, tokenAddress }
   }
 }
-export default function RedirectExplore() {
+// eslint-disable-next-line
+function RedirectExplore() {
   const { tab, chainName, tokenAddress } = useExploreParams()
   const isLegacyUrl = !useLocation().pathname.includes('explore')
 
