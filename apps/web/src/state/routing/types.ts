@@ -796,11 +796,8 @@ export enum PoolType {
 // all chains except for bnb chain and polygon
 // have "ETH" as native currency symbol
 export enum SwapRouterNativeAssets {
-  MATIC = 'MATIC',
-  BNB = 'BNB',
-  AVAX = 'AVAX',
   ETH = 'ETH',
-  ANIME = 'ANIME',
+  HUMANITY = 'HUMANITY',
 }
 
 export enum URAQuoteType {

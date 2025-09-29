@@ -37,6 +37,7 @@ export const REDSTONE_LOGO = require('./logos/png/redstone-logo.png')
 export const REDSTONE_GARNET_LOGO = require('./logos/png/redstone-garnet-logo.png')
 export const ANIME_LOGO = require('./logos/png/anime-logo.png')
 export const ANIME_TESTNET_LOGO = require('./logos/png/anime-logo.png')
+export const HUMANITY_LOGO = require('./logos/png/humanity-logo.png')
 export const MODE_LOGO = require('./logos/png/mode-logo.png')
 
 export const DAI_LOGO = require('./logos/png/dai-logo.png')

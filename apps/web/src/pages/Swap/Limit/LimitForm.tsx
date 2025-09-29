@@ -37,10 +37,9 @@ import { LimitOrderTrade, TradeFillType } from 'state/routing/types'
 import { useSwapActionHandlers } from 'state/swap/hooks'
 import { CurrencyState } from 'state/swap/types'
 import { useSwapAndLimitContext } from 'state/swap/useSwapContext'
-import { Anchor, Text, styled as tamaguiStyled } from 'ui/src'
+import { Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { colors, validColor } from 'ui/src/theme'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { ElementName, InterfacePageNameLocal } from 'uniswap/src/features/telemetry/constants'
 import { Trans } from 'uniswap/src/i18n'
@@ -73,18 +72,6 @@ const LimitDisclaimerContainer = styled(Row)`
   padding: 12px;
   margin-top: 12px;
 `
-
-const LearnMore = tamaguiStyled(Text, {
-  variant: 'buttonLabel2',
-  color: '$accent1',
-  animation: '100ms',
-  hoverStyle: {
-    opacity: 0.6,
-  },
-  focusStyle: {
-    opacity: 0.4,
-  },
-})
 
 export const LIMIT_FORM_CURRENCY_SEARCH_FILTERS: CurrencySearchFilters = {
   showCommonBases: true,
@@ -385,32 +372,10 @@ function LimitForm({ onCurrencyChange }: LimitFormProps) {
           {!isUniswapXSupportedChain(chainId) ? (
             <Trans
               i18nKey="limits.form.disclaimer.mainnet"
-              components={{
-                link: (
-                  <Anchor
-                    textDecorationLine="none"
-                    href={uniswapUrls.helpArticleUrls.limitsNetworkSupport}
-                    target="_blank"
-                  >
-                    <LearnMore>
-                      <Trans i18nKey="common.button.learn" />
-                    </LearnMore>
-                  </Anchor>
-                ),
-              }}
             />
           ) : (
             <Trans
               i18nKey="limits.form.disclaimer.uniswapx"
-              components={{
-                link: (
-                  <Anchor textDecorationLine="none" href={uniswapUrls.helpArticleUrls.limitsFailure} target="_blank">
-                    <LearnMore>
-                      <Trans i18nKey="common.button.learn" />
-                    </LearnMore>
-                  </Anchor>
-                ),
-              }}
             />
           )}
         </Text>

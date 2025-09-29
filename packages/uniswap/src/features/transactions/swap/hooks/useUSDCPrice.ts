@@ -26,6 +26,7 @@ import {
   USDC_ZKSYNC,
   USDC_ZORA,
   USDT_BNB,
+  USDT_HUMANITY,
 } from 'uniswap/src/constants/tokens'
 import { useTrade } from 'uniswap/src/features/transactions/swap/hooks/useTrade'
 import { isClassic } from 'uniswap/src/features/transactions/swap/utils/routing'
@@ -58,6 +59,7 @@ export const STABLECOIN_AMOUNT_OUT: { [chainId: number]: CurrencyAmount<Token> }
   [UniverseChainId.AbstractMainnet]: CurrencyAmount.fromRawAmount(USDC_ABSTRACT_MAINNET, 10_000e6),
   [UniverseChainId.AnimeTestnet]: CurrencyAmount.fromRawAmount(USDC_ANIME_TESTNET, 10_000e6),
   [UniverseChainId.Anime]: CurrencyAmount.fromRawAmount(USDC_ANIME, 10_000e6),
+  [UniverseChainId.Humanity]: CurrencyAmount.fromRawAmount(USDT_HUMANITY, 10_000e6),
   [UniverseChainId.Mode]: CurrencyAmount.fromRawAmount(USDC_MODE, 10_000e6),
 }
 

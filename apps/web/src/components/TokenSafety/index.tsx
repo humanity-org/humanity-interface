@@ -7,7 +7,6 @@ import {
   displayWarningLabel,
   getWarningCopy,
   StrongWarning,
-  TOKEN_SAFETY_ARTICLE,
   useTokenWarning,
   Warning,
 } from 'constants/tokenSafety'
@@ -15,7 +14,7 @@ import styled from 'lib/styled-components'
 import { ExternalLink as LinkIconFeather } from 'react-feather'
 import { Text } from 'rebass'
 import { useAddUserToken } from 'state/user/hooksLegacy'
-import { ButtonText, CopyLinkIcon, ExternalLink } from 'theme/components'
+import { ButtonText, CopyLinkIcon } from 'theme/components'
 import { useDismissedTokenWarnings } from 'uniswap/src/features/tokens/slice/hooks'
 import { Trans } from 'uniswap/src/i18n'
 import { ExplorerDataType, getExplorerLink } from 'utils/getExplorerLink'
@@ -193,12 +192,6 @@ function ExplorerView({ token }: { token: Token }) {
   }
 }
 
-const StyledExternalLink = styled(ExternalLink)`
-  color: ${({ theme }) => theme.accent1};
-  stroke: currentColor;
-  font-weight: 535;
-`
-
 export interface TokenSafetyProps {
   token0?: Token
   token1?: Token
@@ -253,11 +246,6 @@ export default function TokenSafety({ token0, token1, onContinue, onCancel, onBl
   }
 
   const { heading, description } = getWarningCopy(displayWarning, plural)
-  const learnMoreUrl = (
-    <StyledExternalLink href={TOKEN_SAFETY_ARTICLE}>
-      <Trans i18nKey="common.button.learn" />
-    </StyledExternalLink>
-  )
 
   return displayWarning ? (
     <Wrapper data-testid="TokenSafetyWrapper">
@@ -272,7 +260,7 @@ export default function TokenSafety({ token0, token1, onContinue, onCancel, onBl
         )}
         <ShortColumn>
           <InfoText>
-            {heading} {description} {learnMoreUrl}
+            {heading} {description}
           </InfoText>
         </ShortColumn>
         <LinkColumn>{urls}</LinkColumn>
@@ -293,7 +281,7 @@ export default function TokenSafety({ token0, token1, onContinue, onCancel, onBl
         </ShortColumn>
         <ShortColumn>
           <InfoText>
-            {heading} {description} {learnMoreUrl}
+            {heading} {description}
           </InfoText>
         </ShortColumn>
         <Buttons warning={StrongWarning} onCancel={onCancel} showCancel={true} />

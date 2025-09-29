@@ -2,11 +2,9 @@ import Column from 'components/Column'
 import Row from 'components/Row'
 import styled from 'lib/styled-components'
 import { ReactNode } from 'react'
-import { ExternalLink } from 'theme/components'
 import { Text } from 'ui/src'
 import { AlertTriangleFilled } from 'ui/src/components/icons/AlertTriangleFilled'
 import { iconSizes } from 'ui/src/theme'
-import { Trans } from 'uniswap/src/i18n'
 
 const Container = styled.div`
   height: 100%;
@@ -35,7 +33,7 @@ interface PoolWarningProps {
 }
 
 // TODO (WEB-4097): Replace with generic spore alert component, when available
-export function PoolWarning({ title, subtitle, link }: PoolWarningProps) {
+export function PoolWarning({ title, subtitle }: PoolWarningProps) {
   return (
     <Container>
       <Row gap="md" height="100%">
@@ -51,11 +49,6 @@ export function PoolWarning({ title, subtitle, link }: PoolWarningProps) {
           <Text variant="body3" color="$neutral2">
             {subtitle}
           </Text>
-          <ExternalLink href={link}>
-            <Text variant="buttonLabel3" color="$neutral1">
-              <Trans i18nKey="common.button.learn" />
-            </Text>
-          </ExternalLink>
         </StyledColumn>
       </Row>
     </Container>

@@ -5,6 +5,7 @@ export interface MenuItem {
   href: string
   internal?: boolean
   overflow?: boolean
+  isBlank?: boolean
   closeMenu?: () => void
 }
 
@@ -22,10 +23,6 @@ export const useMenuContent = (): MenuSection[] => {
     {
       title: 'Help',
       items: [{ label: 'Contact Support', href: 'https://swap-support.protofire.io/' }],
-    },
-    {
-      title: 'Company',
-      items: [{ label: 'Protofire', href: 'https://protofire.io/' }],
     },
     {
       title: 'Terms',

@@ -23,11 +23,13 @@ import {
   SHAPE_LOGO,
   ZKSYNC_LOGO,
   ZORA_LOGO,
+  HUMANITY_LOGO,
 } from 'ui/src/assets'
 import { config } from 'uniswap/src/config'
 import { abstract } from 'uniswap/src/constants/chainDefinitions/abstract'
 import { abstractTestnet } from 'uniswap/src/constants/chainDefinitions/abstractTestnet'
 import { anime } from 'uniswap/src/constants/chainDefinitions/anime'
+import { humanity } from 'uniswap/src/constants/chainDefinitions/humanity'
 import { animeTestnet } from 'uniswap/src/constants/chainDefinitions/animeTestnet'
 import { bob } from 'uniswap/src/constants/chainDefinitions/bob'
 import { cyber } from 'uniswap/src/constants/chainDefinitions/cyber'
@@ -73,6 +75,7 @@ import {
   USDC_ZKSYNC,
   USDC_ZORA,
   USDT,
+  USDT_HUMANITY,
 } from 'uniswap/src/constants/tokens'
 import { Chain as BackendChainId } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
 import { FLASHBOTS_RPC_URL } from 'uniswap/src/features/providers/FlashbotsRpcProvider'
@@ -1663,6 +1666,55 @@ export const UNIVERSE_CHAIN_INFO: Record<UniverseChainId, UniverseChainInfo> = {
       symbol: 'WANIME',
       decimals: 18,
       address: '0x164906a76f1A2Ea933366c446AE0Ec6a37062c42',
+    },
+  } as const satisfies UniverseChainInfo,
+  [UniswapSDKChainId.HUMANITY]: {
+    ...humanity,
+    id: UniverseChainId.Humanity,
+    sdkId: UniswapSDKChainId.HUMANITY,
+    assetRepoNetworkName: undefined,
+    backendChain: {
+      chain: BackendChainId.UnknownChain as InterfaceGqlChain,
+      backendSupported: false,
+      isSecondaryChain: true,
+      nativeTokenBackendAddress: undefined,
+    },
+    blockPerMainnetEpochForChainId: 12,
+    blockWaitMsBeforeWarning: 600000,
+    bridge: '',
+    chainPriority: 0,
+    docs: '',
+    elementName: ElementName.ChainHumanity,
+    explorer: {
+      name: 'Humanity Explorer',
+      url: 'https://humanity-mainnet.explorer.alchemy.com/',
+      apiURL: 'https://humanity-mainnet.explorer.alchemy.com/api',
+    },
+    helpCenterUrl: undefined,
+    infoLink: '',
+    infuraPrefix: undefined,
+    interfaceName: 'humanity',
+    label: 'Humanity',
+    logo: HUMANITY_LOGO,
+    nativeCurrency: { name: 'HUMANITY', symbol: 'H', decimals: 18, address: DEFAULT_NATIVE_ADDRESS },
+    networkLayer: NetworkLayer.L2,
+    pendingTransactionsRetryOptions: undefined,
+    rpcUrls: {
+      [RPCType.Public]: { http: ['https://humanity-mainnet.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
+      default: { http: ['https://humanity-mainnet.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
+      appOnly: { http: ['https://humanity-mainnet.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
+    },
+    urlParam: 'humanity',
+    statusPage: undefined,
+    spotPriceStablecoinAmount: CurrencyAmount.fromRawAmount(USDT_HUMANITY, 10_000e6),
+    stablecoins: [USDT_HUMANITY],
+    supportsClientSideRouting: false,
+    supportsGasEstimates: false,
+    wrappedNativeCurrency: {
+      name: 'Wrapped HUMANITY',
+      symbol: 'WH',
+      decimals: 18,
+      address: '0x31B1AaE8325C36534549b52d94bC6452f246c41E',
     },
   } as const satisfies UniverseChainInfo,
   [UniswapSDKChainId.MODE]: {

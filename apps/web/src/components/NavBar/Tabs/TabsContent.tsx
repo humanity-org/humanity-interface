@@ -8,7 +8,6 @@ import forkConfig from 'forkConfig'
 import { useTheme } from 'lib/styled-components'
 import { useLocation } from 'react-router-dom'
 import { useSwapAndLimitContext } from 'state/swap/useSwapContext'
-import { UNIVERSE_CHAIN_INFO } from 'uniswap/src/constants/chains'
 import { FeatureFlags } from 'uniswap/src/features/gating/flags'
 import { useFeatureFlag } from 'uniswap/src/features/gating/hooks'
 import { useTranslation } from 'uniswap/src/i18n'
@@ -18,6 +17,7 @@ export type TabsSection = {
   title: string
   href: string
   isActive?: boolean
+  isBlank?: boolean
   items?: TabsItem[]
   closeMenu?: () => void
 }
@@ -82,8 +82,9 @@ export const useTabsContent = (props?: { includeNftsLink?: boolean }): TabsSecti
     },
     {
       title: t('common.explore'),
-      href: `https://info.replace.domain/#/${UNIVERSE_CHAIN_INFO[chainId as UniverseChainId].urlParam}`,
+      href: `https://info.staging.swap.humanity.org`,
       isActive: pathname.startsWith('/explore') || pathname.startsWith('/nfts'),
+      isBlank: true,
       items: forkConfig.uniSpecificFeaturesEnabled
         ? [
             { label: t('common.tokens'), quickKey: 'T', href: '/explore/tokens', internal: true },
@@ -114,17 +115,18 @@ export const useTabsContent = (props?: { includeNftsLink?: boolean }): TabsSecti
             {
               label: 'V3 Analytics',
               quickKey: 'T',
-              href: `https://info.swap.w3us.site/#/${UNIVERSE_CHAIN_INFO[chainId as UniverseChainId].urlParam}`,
+              href: `https://info.staging.swap.humanity.org/`,
               internal: false,
+              isBlank: true,
             },
             ...(![+UniverseChainId.BOB, UniverseChainId.REDSTONE, UniverseChainId.REDSTONE_GARNET].includes(+chainId!)
               ? [
-                  {
-                    label: 'V2 Analytics',
-                    quickKey: 'P',
-                    href: `https://v2-info-${UNIVERSE_CHAIN_INFO[chainId as UniverseChainId].urlParam.replace(/_/g, '-')}.swap.w3us.site`,
-                    internal: false,
-                  },
+                  // {
+                  //   label: 'V2 Analytics',
+                  //   quickKey: 'P',
+                  //   href: `https://v2-info-${UNIVERSE_CHAIN_INFO[chainId as UniverseChainId].urlParam.replace(/_/g, '-')}.swap.w3us.site`,
+                  //   internal: false,
+                  // },
                 ]
               : []),
           ],

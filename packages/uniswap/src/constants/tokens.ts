@@ -281,6 +281,14 @@ export const WBTC = new Token(
   'Wrapped BTC',
 )
 
+export const USDT_HUMANITY = new Token(
+  UniverseChainId.Humanity,
+  '0x81f200386991081F3dca22E9b07ae183BE0C7E17',
+  6,
+  'USDT',
+  'Tether USD',
+)
+
 export const UNI = {
   [UniverseChainId.Mainnet]: new Token(
     UniverseChainId.Mainnet,

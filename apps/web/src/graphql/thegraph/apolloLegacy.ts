@@ -18,6 +18,7 @@ const CHAIN_SUBGRAPH_URL: Record<number, string> = {
   [UniverseChainId.AbstractMainnet]: 'https://graph.swap.w3us.site/subgraphs/name/abstract/uniswap-v3',
   [UniverseChainId.AnimeTestnet]: 'https://graph-node.replace.domain/subgraphs/name/anime-testnet/v3-subgraph',
   [UniverseChainId.Anime]: 'https://graph-node.replace.domain/subgraphs/name/anime/v3-subgraph',
+  [UniverseChainId.Humanity]: 'https://graph.staging.swap.humanity.org/subgraphs/name/humanity-mainnet/uniswap-v3',
   [UniverseChainId.Mode]: 'https://graph-node.replace.domain/subgraphs/name/mode/v3-subgraph',
 }
 

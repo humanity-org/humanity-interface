@@ -1,5 +1,6 @@
 import EthereumLogo from 'assets/images/ethereum-logo.png'
 import AnimeLogo from 'assets/png/anime-logo.png'
+import HumanityLogo from 'assets/png/humanity-logo.png'
 import AvaxLogo from 'assets/svg/avax_logo.svg'
 import BnbLogo from 'assets/svg/bnb-logo.svg'
 import CeloLogo from 'assets/svg/celo_logo.svg'
@@ -23,6 +24,8 @@ export function getNativeLogoURI(chainId: InterfaceChainId = UniverseChainId.Mai
       return AvaxLogo
     case UniverseChainId.Anime:
       return AnimeLogo
+    case UniverseChainId.Humanity:
+      return HumanityLogo
     default:
       return EthereumLogo
   }

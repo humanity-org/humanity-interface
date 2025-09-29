@@ -8,9 +8,8 @@ import { atom, useAtom } from 'jotai'
 import styled from 'lib/styled-components'
 import { ReactNode, useCallback } from 'react'
 import { RouterPreference } from 'state/routing/types'
-import { ExternalLink, ThemedText } from 'theme/components'
+import { ThemedText } from 'theme/components'
 import { Switch } from 'ui/src'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { Trans, t } from 'uniswap/src/i18n'
 
 const LabelWrapper = styled(Column)`
@@ -27,7 +26,6 @@ enum RoutePreferenceOption {
   Optimal = 'Optimal',
   UniswapX = 'UniswapX',
   v3 = 'v3',
-  v2 = 'v2',
 }
 
 type RoutePreferenceOptionsType =
@@ -35,20 +33,17 @@ type RoutePreferenceOptionsType =
       [RoutePreferenceOption.Optimal]: false
       [RoutePreferenceOption.UniswapX]: boolean
       [RoutePreferenceOption.v3]: boolean
-      [RoutePreferenceOption.v2]: boolean
     }
   | {
       [RoutePreferenceOption.Optimal]: true
       [RoutePreferenceOption.UniswapX]: false
       [RoutePreferenceOption.v3]: false
-      [RoutePreferenceOption.v2]: false
     }
 
 const DEFAULT_ROUTE_PREFERENCE_OPTIONS: RoutePreferenceOptionsType = {
   [RoutePreferenceOption.Optimal]: true,
   [RoutePreferenceOption.UniswapX]: false,
   [RoutePreferenceOption.v3]: false,
-  [RoutePreferenceOption.v2]: false,
 }
 const DEFAULT_ROUTING_PREFERENCE: RoutingPreference = {
   router: RouterPreference.X,
@@ -66,9 +61,6 @@ function UniswapXPreferenceLabel() {
         text={
           <>
             <Trans i18nKey="routing.aggregateLiquidity" />{' '}
-            <ExternalLink href={uniswapUrls.helpArticleUrls.uniswapXInfo}>
-              <Trans i18nKey="common.button.learn" />
-            </ExternalLink>
           </>
         }
         placement="right"
@@ -81,7 +73,7 @@ const ROUTE_PREFERENCE_TO_LABEL: Record<RoutePreferenceOption, ReactNode> = {
   [RoutePreferenceOption.Optimal]: t('common.defaultTradeOptions'),
   [RoutePreferenceOption.UniswapX]: <UniswapXPreferenceLabel />,
   [RoutePreferenceOption.v3]: t('pool.v3'),
-  [RoutePreferenceOption.v2]: t('pool.v2'),
+  // [RoutePreferenceOption.v2]: t('pool.v2'),
 }
 
 function RoutePreferenceToggle({
@@ -120,8 +112,7 @@ function RoutePreferenceToggle({
 export default function MultipleRoutingOptions({ chainId }: { chainId?: number }) {
   const [routePreferenceOptions, setRoutePreferenceOptions] = useAtom(routePreferenceOptionsAtom)
   const [, setRoutingPreferences] = useAtom(routingPreferencesAtom)
-  const shouldDisableProtocolOptionToggle =
-    !routePreferenceOptions[RoutePreferenceOption.v2] || !routePreferenceOptions[RoutePreferenceOption.v3]
+  const shouldDisableProtocolOptionToggle = !routePreferenceOptions[RoutePreferenceOption.v3]
   const uniswapXSupportedChain = chainId && isUniswapXSupportedChain(chainId)
   const handleSetRoutePreferenceOptions = useCallback(
     (options: RoutePreferenceOptionsType) => {
@@ -139,13 +130,7 @@ export default function MultipleRoutingOptions({ chainId }: { chainId?: number }
         protocols: [],
       }
 
-      if (options[RoutePreferenceOption.v2] && options[RoutePreferenceOption.v3]) {
-        routingPreferences.protocols = [Protocol.V2, Protocol.V3, Protocol.MIXED]
-      } else if (options[RoutePreferenceOption.v2]) {
-        routingPreferences.protocols = [Protocol.V2]
-      } else if (options[RoutePreferenceOption.v3]) {
-        routingPreferences.protocols = [Protocol.V3]
-      }
+      routingPreferences.protocols = [Protocol.V3]
 
       setRoutePreferenceOptions(options)
       setRoutingPreferences(routingPreferences)
@@ -160,13 +145,11 @@ export default function MultipleRoutingOptions({ chainId }: { chainId?: number }
           ? handleSetRoutePreferenceOptions({
               [RoutePreferenceOption.Optimal]: false,
               [RoutePreferenceOption.UniswapX]: true,
-              [RoutePreferenceOption.v2]: true,
               [RoutePreferenceOption.v3]: true,
             })
           : handleSetRoutePreferenceOptions({
               [RoutePreferenceOption.Optimal]: true,
               [RoutePreferenceOption.UniswapX]: false,
-              [RoutePreferenceOption.v2]: false,
               [RoutePreferenceOption.v3]: false,
             })
         return
@@ -198,7 +181,7 @@ export default function MultipleRoutingOptions({ chainId }: { chainId?: number }
         toggle={() => handleRoutePreferenceToggle(RoutePreferenceOption.Optimal)}
       />
       {!routePreferenceOptions[RoutePreferenceOption.Optimal] &&
-        [RoutePreferenceOption.UniswapX, RoutePreferenceOption.v3, RoutePreferenceOption.v2].map((preference) => {
+        [RoutePreferenceOption.UniswapX, RoutePreferenceOption.v3].map((preference) => {
           if (preference === RoutePreferenceOption.UniswapX && !uniswapXSupportedChain) {
             return null
           }
@@ -210,7 +193,6 @@ export default function MultipleRoutingOptions({ chainId }: { chainId?: number }
               isActive={routePreferenceOptions[preference]}
               disabled={
                 preference !== RoutePreferenceOption.UniswapX &&
-                routePreferenceOptions[preference] &&
                 shouldDisableProtocolOptionToggle
               }
               toggle={() => handleRoutePreferenceToggle(preference)}

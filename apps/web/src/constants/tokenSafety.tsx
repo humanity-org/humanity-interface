@@ -3,8 +3,6 @@ import { SafetyLevel } from 'uniswap/src/data/graphql/uniswap-data-api/__generat
 import { Trans, t } from 'uniswap/src/i18n'
 import { InterfaceChainId } from 'uniswap/src/types/chains'
 
-export const TOKEN_SAFETY_ARTICLE = 'https://support.uniswap.org/hc/en-us/articles/8723118437133'
-
 const SafetyLevelWeight = {
   [SafetyLevel.Blocked]: 4,
   [SafetyLevel.StrongWarning]: 3,

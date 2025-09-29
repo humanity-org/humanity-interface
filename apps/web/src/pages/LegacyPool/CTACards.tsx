@@ -75,16 +75,6 @@ export default function CTACards() {
 
   return (
     <CTASection>
-      <CTAExternalLink href="https://support.uniswap.org/hc/en-us/categories/8122334631437-Providing-Liquidity-">
-        <ResponsiveColumn>
-          <HeaderText>
-            <Trans i18nKey="pool.learnLiquidity" /> ↗
-          </HeaderText>
-          <ThemedText.DeprecatedBody style={{ alignItems: 'center', display: 'flex', fontWeight: 485 }}>
-            <Trans i18nKey="pool.learnv3LP" />
-          </ThemedText.DeprecatedBody>
-        </ResponsiveColumn>
-      </CTAExternalLink>
       <CTAExternalLink data-testid="cta-poolslink" href={`${chain.infoLink}/explore/pools`}>
         <ResponsiveColumn>
           <HeaderText style={{ alignSelf: 'flex-start' }}>

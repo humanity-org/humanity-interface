@@ -61,6 +61,7 @@ import {
   USDC_ZERO,
   USDC_ZKSYNC,
   USDC_ZORA,
+  USDT_HUMANITY,
 } from 'uniswap/src/constants/tokens'
 import { SafetyLevel } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
 import { CurrencyInfo } from 'uniswap/src/features/dataApi/types'
@@ -266,6 +267,11 @@ export const COMMON_BASES: ChainCurrencyList = {
     nativeOnChain(UniverseChainId.Anime),
     WRAPPED_NATIVE_CURRENCY[UniverseChainId.Anime] as Token,
     USDC_ANIME,
+  ].map(buildCurrencyInfo),
+  [UniverseChainId.Humanity]: [
+    nativeOnChain(UniverseChainId.Humanity),
+    WRAPPED_NATIVE_CURRENCY[UniverseChainId.Humanity] as Token,
+    USDT_HUMANITY,
   ].map(buildCurrencyInfo),
   [UniverseChainId.Mode]: [
     nativeOnChain(UniverseChainId.Mode),

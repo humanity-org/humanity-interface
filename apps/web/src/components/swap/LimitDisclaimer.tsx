@@ -1,6 +1,6 @@
 import Column from 'components/Column'
 import styled from 'lib/styled-components'
-import { ExternalLink, ThemedText } from 'theme/components'
+import { ThemedText } from 'theme/components'
 import { Trans } from 'uniswap/src/i18n'
 
 const Container = styled(Column)`
@@ -21,11 +21,6 @@ export function LimitDisclaimer({ className }: { className?: string }) {
         <Trans i18nKey="pool.limitFluctuation.warning" />
       </DisclaimerText>
       <DisclaimerText>Canceling a limit has a network cost.</DisclaimerText>
-      <DisclaimerText>
-        <ExternalLink href="https://support.uniswap.org/hc/en-us/articles/24300813697933">
-          <Trans i18nKey="common.button.learn" />
-        </ExternalLink>
-      </DisclaimerText>
     </Container>
   )
 }

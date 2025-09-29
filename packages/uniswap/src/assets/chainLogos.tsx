@@ -181,6 +181,12 @@ export const UNIVERSE_CHAIN_LOGO = {
       logoDark: BlockExplorer,
     },
   } as const satisfies UniverseChainLogoInfo,
+  [UniverseChainId.Humanity]: {
+    explorer: {
+      logoLight: BlockExplorer,
+      logoDark: BlockExplorer,
+    },
+  } as const satisfies UniverseChainLogoInfo,
   [UniverseChainId.Mode]: {
     explorer: {
       logoLight: BlockExplorer,

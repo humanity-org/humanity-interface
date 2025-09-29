@@ -2,7 +2,6 @@ import { EnvelopeHeartIcon } from 'components/Icons/EnvelopeHeart'
 import Row from 'components/Row'
 import styled from 'lib/styled-components'
 import { ExternalLink } from 'theme/components'
-import { uniswapUrls } from 'uniswap/src/constants/urls'
 import { Trans } from 'uniswap/src/i18n'
 
 const StyledExternalLink = styled(ExternalLink)`
@@ -24,9 +23,10 @@ const StyledExternalLink = styled(ExternalLink)`
   }
   stroke: none;
 `
-export default function GetHelp({ url }: { url?: string }) {
+
+export default function GetHelp() {
   return (
-    <StyledExternalLink href={url ?? uniswapUrls.helpUrl}>
+    <StyledExternalLink href="https://swap-support.protofire.io/">
       <Row gap="4px">
         <EnvelopeHeartIcon />
         <Trans i18nKey="common.getHelp.button" />
