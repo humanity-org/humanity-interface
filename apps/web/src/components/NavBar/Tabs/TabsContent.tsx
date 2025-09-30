@@ -82,7 +82,7 @@ export const useTabsContent = (props?: { includeNftsLink?: boolean }): TabsSecti
     },
     {
       title: t('common.explore'),
-      href: `https://info.staging.swap.humanity.org`,
+      href: `https://info.swap.humanity.org`,
       isActive: pathname.startsWith('/explore') || pathname.startsWith('/nfts'),
       isBlank: true,
       items: forkConfig.uniSpecificFeaturesEnabled
@@ -115,7 +115,7 @@ export const useTabsContent = (props?: { includeNftsLink?: boolean }): TabsSecti
             {
               label: 'V3 Analytics',
               quickKey: 'T',
-              href: `https://info.staging.swap.humanity.org/`,
+              href: `https://info.swap.humanity.org/`,
               internal: false,
               isBlank: true,
             },
