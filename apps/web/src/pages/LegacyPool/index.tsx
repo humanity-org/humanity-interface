@@ -11,7 +11,6 @@ import { useAccount } from 'hooks/useAccount'
 import { useNetworkSupportsV2 } from 'hooks/useNetworkSupportsV2'
 import { useV3Positions } from 'hooks/useV3Positions'
 import deprecatedStyled, { css, useTheme } from 'lib/styled-components'
-import { PoolVersionMenu } from 'pages/LegacyPool/shared'
 import { LoadingRows } from 'pages/LegacyPool/styled'
 import { useMemo, useState } from 'react'
 import { AlertTriangle, BookOpen, ChevronsRight, Inbox, Layers } from 'react-feather'
@@ -20,7 +19,6 @@ import { useUserHideClosedPositions } from 'state/user/hooks'
 import { ThemedText } from 'theme/components'
 import { PositionDetails } from 'types/position'
 import { Anchor, Flex, Text, styled } from 'ui/src'
-import { ProtocolVersion } from 'uniswap/src/data/graphql/uniswap-data-api/__generated__/types-and-hooks'
 import Trace from 'uniswap/src/features/telemetry/Trace'
 import { t, useTranslation } from 'uniswap/src/i18n'
 
@@ -215,9 +213,9 @@ export default function Pool() {
             >
               <Flex row alignItems="center" gap="$spacing8" width="min-content">
                 <Text variant="heading2">{t('pool.positions')}</Text>
-                <div>
+                {/* <div>
                   <PoolVersionMenu protocolVersion={ProtocolVersion.V3} />
-                </div>
+                </div> */}
               </Flex>
               <Flex row gap="8px" $md={{ width: '100%' }}>
                 {networkSupportsV2 && (
