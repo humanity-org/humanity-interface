@@ -76,15 +76,11 @@ function Item({ icon, label, quickKey, path, closeMenu, isBlank }: TItemProps) {
 const Tab = ({
   label,
   isActive,
-  isBlank,
-  path,
   items,
-  internal = true,
   icon
 }: {
   label: string
   isActive?: boolean
-  isBlank?: boolean
   path: string
   items?: TabsItem[]
   internal?: boolean
@@ -102,19 +98,17 @@ const Tab = ({
   useEffect(() => closeMenu(), [location, closeMenu])
 
   const Label = (
-    <NavLink target={!internal ? '_blank' : '_self'} to={path} style={{ textDecoration: 'none' }}>
-      <Flex alignItems="center" gap="$spacing4" m="8px" flexDirection="row">
-        <TabText
-          variant="subheading1"
-          color={isActive || isOpen ? '$neutral1' : '$neutral2'}
-          cursor="pointer"
-          userSelect="none"
-        >
-          {label}
-        </TabText>
-        {icon}
-      </Flex>
-    </NavLink>
+    <Flex alignItems="center" gap="$spacing4" m="8px" flexDirection="row">
+      <TabText
+        variant="subheading1"
+        color={isActive || isOpen ? '$neutral1' : '$neutral2'}
+        cursor="pointer"
+        userSelect="none"
+      >
+        {label}
+      </TabText>
+      {icon}
+    </Flex>
   )
 
   const handleKeyDown = useCallback(
