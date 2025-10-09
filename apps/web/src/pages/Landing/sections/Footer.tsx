@@ -11,7 +11,7 @@ import { Anchor, Flex, Separator, Text } from 'ui/src'
 import { iconSizes } from 'ui/src/theme'
 import { useTranslation } from 'uniswap/src/i18n'
 const SOCIAL_ICONS_SIZE = `${iconSizes.icon32}px`
-const TWITTER_ICONS_SIZE = `${iconSizes.icon16}px`
+const DISCORD_ICONS_SIZE = `${iconSizes.icon36}px`
 
 const SocialIcon = deprecatedStyled(Wiggle)`
   flex: 0;
@@ -36,12 +36,12 @@ export function Socials({ iconSize }: { iconSize?: string }) {
     <Flex row gap="$spacing24" maxHeight={iconSize} alignItems="center">
       <SocialIcon $hoverColor="#BA5400">
         <Anchor href="https://x.com/Humanityprot" target="_blank">
-          <Twitter size={TWITTER_ICONS_SIZE} fill="inherit" />
+          <Twitter size={iconSize} fill="inherit" />
         </Anchor>
       </SocialIcon>
       <SocialIcon $hoverColor="#BA5400">
         <Anchor href="https://discord.com/invite/xRcwDJUzy7" target="_blank">
-          <Discord size={iconSize} fill="inherit" />
+          <Discord size={DISCORD_ICONS_SIZE} fill="inherit" />
         </Anchor>
       </SocialIcon>
     </Flex>
