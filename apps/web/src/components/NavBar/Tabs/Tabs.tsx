@@ -76,8 +76,10 @@ function Item({ icon, label, quickKey, path, closeMenu, isBlank }: TItemProps) {
 const Tab = ({
   label,
   isActive,
+  path,
   items,
-  icon
+  internal,
+  icon,
 }: {
   label: string
   isActive?: boolean
@@ -98,17 +100,19 @@ const Tab = ({
   useEffect(() => closeMenu(), [location, closeMenu])
 
   const Label = (
-    <Flex alignItems="center" gap="$spacing4" m="8px" flexDirection="row">
-      <TabText
-        variant="subheading1"
-        color={isActive || isOpen ? '$neutral1' : '$neutral2'}
-        cursor="pointer"
-        userSelect="none"
-      >
-        {label}
-      </TabText>
-      {icon}
-    </Flex>
+    <NavLink target={!internal ? '_blank' : '_self'} to={path} style={{ textDecoration: 'none' }}>
+      <Flex alignItems="center" gap="$spacing4" m="8px" flexDirection="row">
+        <TabText
+          variant="subheading1"
+          color={isActive || isOpen ? '$neutral1' : '$neutral2'}
+          cursor="pointer"
+          userSelect="none"
+        >
+          {label}
+        </TabText>
+        {icon}
+      </Flex>
+    </NavLink>
   )
 
   const handleKeyDown = useCallback(
@@ -166,8 +170,16 @@ export function Tabs() {
   const tabsContent: TabsSection[] = useTabsContent()
   return (
     <>
-      {tabsContent.map(({ title, isActive, href, items, internal, icon}, index) => (
-        <Tab icon={icon} key={`${title}_${index}`} label={title} isActive={isActive} path={href} items={items} internal={internal} />
+      {tabsContent.map(({ title, isActive, href, items, internal, icon }, index) => (
+        <Tab
+          icon={icon}
+          key={`${title}_${index}`}
+          label={title}
+          isActive={isActive}
+          path={href}
+          items={items}
+          internal={internal}
+        />
       ))}
     </>
   )
