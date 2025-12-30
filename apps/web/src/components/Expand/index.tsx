@@ -46,8 +46,8 @@ export default function Expand({
   onToggle: () => void
 }>) {
   return (
-    <Wrapper $padding={padding} onClick={onToggle}>
-      <RowBetweenStyled>
+    <Wrapper $padding={padding}>
+      <RowBetweenStyled onClick={onToggle}>
         {header}
         <ButtonContainer data-testid={testId} aria-expanded={isOpen}>
           {button}
