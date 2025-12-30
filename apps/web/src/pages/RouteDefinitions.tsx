@@ -24,6 +24,7 @@ const LegacyPositionPage = lazy(() => import('pages/LegacyPool/PositionPage'))
 const RemoveLiquidityV3 = lazy(() => import('pages/RemoveLiquidity/V3'))
 const PrivacyPolicy = lazy(() => import('pages/PrivacyPolicy'))
 const Terms = lazy(() => import('pages/Terms'))
+const Deployments = lazy(() => import('pages/Deployments'))
 
 interface RouterConfig {
   browserRouterEnabled?: boolean
@@ -69,6 +70,8 @@ const StaticTitlesAndDescriptions = {
   AddLiquidityDescription: t('title.earnFees'),
   PrivacyPolicyDescription: 'Privacy Policy',
   TermsDescription: 'Terms',
+  DeploymentsTitle: 'Deployed Contracts',
+  DeploymentsDescription: 'View contract addresses for supported networks',
 }
 
 export interface RouteDefinition {
@@ -356,6 +359,12 @@ export const routes: RouteDefinition[] = [
     path: '/terms',
     getElement: () => <Terms />,
     getDescription: () => StaticTitlesAndDescriptions.TermsDescription,
+  }),
+  createRouteDefinition({
+    path: '/deployments',
+    getElement: () => <Deployments />,
+    getTitle: () => StaticTitlesAndDescriptions.DeploymentsTitle,
+    getDescription: () => StaticTitlesAndDescriptions.DeploymentsDescription,
   }),
   createRouteDefinition({ path: '*', getElement: () => <Navigate to="/not-found" replace /> }),
   createRouteDefinition({ path: '/not-found', getElement: () => <NotFound /> }),
