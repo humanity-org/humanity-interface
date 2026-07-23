@@ -1,0 +1,40 @@
+# Build the Swap interface and publish it to S3 + CloudFront.
+# Reusable publish workflow lives in humanity-org/devops (docs/app-cicd.md,
+# docs/frontend-build-matrix.md).
+name: build-publish
+
+on:
+  push:
+    branches: [staging, production]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: corepack enable
+      - run: yarn install
+      # API/RPC/graph endpoints are baked into the branch (.env + chain
+      # definitions) — no extra env needed here.
+      - name: Build web app
+        working-directory: apps/web
+        run: yarn build:production
+        env:
+          NODE_OPTIONS: --max-old-space-size=8192
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: apps/web/build
+
+  publish:
+    needs: build
+    uses: humanity-org/devops/.github/workflows/reusable-static-publish.yml@main
+    with:
+      artifact-name: site
+      bucket-name: humanity-swap-${{ github.ref_name }}-ui
+      distribution-id: ${{ github.ref_name == 'production' && vars.SWAP_UI_DIST_ID_PRODUCTION || vars.SWAP_UI_DIST_ID_STAGING }}
+    permissions:
+      id-token: write
