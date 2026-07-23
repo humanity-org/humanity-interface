@@ -1700,9 +1700,9 @@ export const UNIVERSE_CHAIN_INFO: Record<UniverseChainId, UniverseChainInfo> = {
     networkLayer: NetworkLayer.L2,
     pendingTransactionsRetryOptions: undefined,
     rpcUrls: {
-      [RPCType.Public]: { http: ['https://humanity-mainnet.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
-      default: { http: ['https://humanity-mainnet.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
-      appOnly: { http: ['https://humanity-mainnet.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
+      [RPCType.Public]: { http: ['https://humanity-mainnet.g.alchemy.com/v2/w0aMDBTwt1_9XubDy6IJp'] },
+      default: { http: ['https://humanity-mainnet.g.alchemy.com/v2/w0aMDBTwt1_9XubDy6IJp'] },
+      appOnly: { http: ['https://humanity-mainnet.g.alchemy.com/v2/w0aMDBTwt1_9XubDy6IJp'] },
     },
     urlParam: 'humanity',
     statusPage: undefined,

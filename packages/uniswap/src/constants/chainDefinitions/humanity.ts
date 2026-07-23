@@ -14,7 +14,7 @@ export const humanity = /*#__PURE__*/ defineChain({
     symbol: 'H',
   },
   rpcUrls: {
-    default: { http: ['https://humanity-mainnet.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] }, 
+    default: { http: ['https://humanity-mainnet.g.alchemy.com/v2/w0aMDBTwt1_9XubDy6IJp'] }, 
   },
   blockExplorers: {
     default: {
