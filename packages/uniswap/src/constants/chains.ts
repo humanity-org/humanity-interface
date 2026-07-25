@@ -1687,8 +1687,8 @@ export const UNIVERSE_CHAIN_INFO: Record<UniverseChainId, UniverseChainInfo> = {
     elementName: ElementName.ChainHumanity,
     explorer: {
       name: 'Humanity Explorer',
-      url: 'https://humanity-mainnet.explorer.alchemy.com/',
-      apiURL: 'https://humanity-mainnet.explorer.alchemy.com/api',
+      url: 'https://humanity-main.explorer.alchemy.com/',
+      apiURL: 'https://humanity-main.explorer.alchemy.com/api',
     },
     helpCenterUrl: undefined,
     infoLink: '',
@@ -1700,9 +1700,9 @@ export const UNIVERSE_CHAIN_INFO: Record<UniverseChainId, UniverseChainInfo> = {
     networkLayer: NetworkLayer.L2,
     pendingTransactionsRetryOptions: undefined,
     rpcUrls: {
-      [RPCType.Public]: { http: ['https://humanity-mainnet.g.alchemy.com/v2/w0aMDBTwt1_9XubDy6IJp'] },
-      default: { http: ['https://humanity-mainnet.g.alchemy.com/v2/w0aMDBTwt1_9XubDy6IJp'] },
-      appOnly: { http: ['https://humanity-mainnet.g.alchemy.com/v2/w0aMDBTwt1_9XubDy6IJp'] },
+      [RPCType.Public]: { http: ['https://humanity-main.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
+      default: { http: ['https://humanity-main.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
+      appOnly: { http: ['https://humanity-main.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] },
     },
     urlParam: 'humanity',
     statusPage: undefined,
@@ -1714,7 +1714,7 @@ export const UNIVERSE_CHAIN_INFO: Record<UniverseChainId, UniverseChainInfo> = {
       name: 'Wrapped HUMANITY',
       symbol: 'WH',
       decimals: 18,
-      address: '0x31B1AaE8325C36534549b52d94bC6452f246c41E',
+      address: '0xCdf3aE17d13C10859C8D4F7d75C8a543fCED1b9C',
     },
   } as const satisfies UniverseChainInfo,
   [UniswapSDKChainId.MODE]: {

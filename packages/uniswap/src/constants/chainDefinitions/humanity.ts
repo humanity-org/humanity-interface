@@ -5,7 +5,7 @@ import { chainConfig } from 'viem/op-stack'
 // For this reason this and future chains could be defined in this folder.
 export const humanity = /*#__PURE__*/ defineChain({
   ...chainConfig,
-  id: 6985385,
+  id: 13600000,
   name: 'Humanity',
   network: 'humanity',
   nativeCurrency: {
@@ -14,18 +14,18 @@ export const humanity = /*#__PURE__*/ defineChain({
     symbol: 'H',
   },
   rpcUrls: {
-    default: { http: ['https://humanity-mainnet.g.alchemy.com/v2/w0aMDBTwt1_9XubDy6IJp'] }, 
+    default: { http: ['https://humanity-main.g.alchemy.com/v2/iM48re7ayAOI-7XVTt4D-'] }, 
   },
   blockExplorers: {
     default: {
       name: 'Humanity Explorer',
-      url: 'https://humanity-mainnet.explorer.alchemy.com/',
+      url: 'https://humanity-main.explorer.alchemy.com/',
     },
   },
   testnet: false,
   contracts: {
     multicall3: {
-      address: '0xDDe24e9b8656E83B533e4C55901258f095D97fC7',
+      address: '0x5E839c71A9DEeB89916A8BF3E6Af1fd6651b98ba',
     },
   },
 })
