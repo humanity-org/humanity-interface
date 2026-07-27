@@ -283,7 +283,7 @@ export const WBTC = new Token(
 
 export const USDT_HUMANITY = new Token(
   UniverseChainId.Humanity,
-  '0x995b551Cb1C0100023B302f7257469980b3fc38d',
+  '0x150e67628bd1bf878494e5afab91b6e4c21cb65e',
   6,
   'USDT',
   'Tether USD',
