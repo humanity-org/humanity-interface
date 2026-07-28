@@ -167,7 +167,7 @@ const commonTheme = {
   chain_57073: colors.networkInk,
   chain_6900: colors.networkAnimeTestnet,
   chain_69000: colors.networkAnime,
-  chain_6985385: colors.networkHumanity,
+  chain_13600000: colors.networkHumanity,
   chain_42161: colors.networkArbitrum,
   chain_421613: colors.networkArbitrum,
   chain_421614: colors.networkArbitrum,

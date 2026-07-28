@@ -531,7 +531,7 @@ export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   ),
   [UniverseChainId.Humanity]: new Token(
     UniverseChainId.Humanity,
-    '0x31B1AaE8325C36534549b52d94bC6452f246c41E',
+    '0xCdf3aE17d13C10859C8D4F7d75C8a543fCED1b9C',
     18,
     'WH',
     'Wrapped Humanity',

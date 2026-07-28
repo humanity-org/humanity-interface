@@ -8,7 +8,10 @@ import { Wiggle } from 'pages/Landing/components/animations'
 import { useMemo } from 'react'
 // import { useTogglePrivacyPolicy } from 'state/application/hooks'
 import { Anchor, Flex, Separator, Text } from 'ui/src'
+import { iconSizes } from 'ui/src/theme'
 import { useTranslation } from 'uniswap/src/i18n'
+const SOCIAL_ICONS_SIZE = `${iconSizes.icon32}px`
+const DISCORD_ICONS_SIZE = `${iconSizes.icon36}px`
 
 const SocialIcon = deprecatedStyled(Wiggle)`
   flex: 0;
@@ -38,7 +41,7 @@ export function Socials({ iconSize }: { iconSize?: string }) {
       </SocialIcon>
       <SocialIcon $hoverColor="#BA5400">
         <Anchor href="https://discord.com/invite/xRcwDJUzy7" target="_blank">
-          <Discord size="36px" fill="inherit" />
+          <Discord size={DISCORD_ICONS_SIZE} fill="inherit" />
         </Anchor>
       </SocialIcon>
     </Flex>
@@ -87,7 +90,7 @@ export function Footer() {
       <Flex row $md={{ flexDirection: 'column' }} justifyContent="space-between" gap="$spacing32">
         <Flex height="100%" gap="$spacing60">
           <Flex $md={{ display: 'none' }}>
-            <Socials iconSize="25px" />
+            <Socials iconSize={SOCIAL_ICONS_SIZE} />
           </Flex>
         </Flex>
         <Flex row $md={{ flexDirection: 'column' }} height="100%" gap="$spacing16">
@@ -103,7 +106,7 @@ export function Footer() {
           </Flex> */}
         </Flex>
         <Flex $md={{ display: 'flex' }} display="none">
-          <Socials iconSize="25px" />
+          <Socials iconSize={SOCIAL_ICONS_SIZE} />
         </Flex>
       </Flex>
       <Separator />
