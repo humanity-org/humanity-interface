@@ -7,7 +7,12 @@ export const ZERO_ADDRESS = '0x0000000000000000000000000000000000000000'
 // seconds to minutes in the codebase.
 // 10 minutes, denominated in seconds
 export const DEFAULT_DEADLINE_FROM_NOW = 60 * 10
-export const L2_DEADLINE_FROM_NOW = 60 * 5
+// Humanity Orbit L2 produces heartbeat blocks every ~300–565s when idle (not
+// fast like typical L2s). The tx deadline is anchored to the (up to ~565s stale)
+// on-chain block timestamp, so a 5-min TTL is frequently already expired at
+// mining -> "Transaction too old" revert. 30 min gives a wide margin over the
+// max observed block gap. (report B20)
+export const L2_DEADLINE_FROM_NOW = 60 * 30
 
 // transaction popup dismissal amounts
 export const DEFAULT_TXN_DISMISS_MS = 10000
