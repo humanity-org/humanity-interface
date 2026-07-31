@@ -12,7 +12,7 @@ export function setupSentry() {
   Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
     release: process.env.REACT_APP_GIT_COMMIT_HASH,
-    environment: getEnvName(),
+    environment: process.env.REACT_APP_SENTRY_ENVIRONMENT || getEnvName(),
     enabled: true,
     tracesSampleRate: Number(process.env.REACT_APP_SENTRY_TRACES_SAMPLE_RATE ?? 0),
     integrations: [
