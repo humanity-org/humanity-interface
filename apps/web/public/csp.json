@@ -27,6 +27,7 @@
     "'self'",
     "blob:",
     "data:",
+    "https://*.ingest.de.sentry.io",
     "https://*.coinbase.com",
     "https://*.coingecko.com/",
     "https://*.coinmarketcap.com/",
